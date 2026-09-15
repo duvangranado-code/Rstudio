@@ -1,4 +1,3 @@
-# Rstudio
 ### Trabajo 1 ###
  
    # Duvan Estiben Granado#
@@ -39,6 +38,16 @@
  
  # Segunda pregunta #
  
+ numSummary(Datos[,5:9], statistics = c("mean", "sd", "IQR", "quantiles", 
+                                        "cv", "skewness"))
+ 
+ # resumen numerico y grafico
+ 
+numSummary(Datos[,5:9], statistics = c("mean", "sd", "quantiles", "cv", "skewness"),
+           type = "3",quantiles = c(0, 0.25, 0.5, 0.75, 1))
+
+boxplot(Volumen_produccion_ton~Tipo_actor)
+
  # 3. ESTADÍSTICA DESCRIPTIVA #
  
  # Medidas para variable cuantitativa (ej. Volumen)
@@ -52,6 +61,11 @@
  tabla_actor <- table(Tipo_actor)
  tabla_actor                      # Frecuencia absoluta
  prop.table(tabla_actor) * 100    # Frecuencia relativa (%)
+ 
+ library(agricolae)
+ H_S=graph.freq(Utilidad_COP, plot = FALSE)
+ H_S
+ (tabla=table.freq(H_S)) #tabla de frecuencia
  
  # 5. GRÁFICOS Y VISUALIZACIÓN --------------------------------------------------
  # Diagrama de barras
@@ -72,4 +86,5 @@
          main = "Boxplot de Volumen de Producción", 
          col = "salmon", 
          horizontal = TRUE)
+ 
  
